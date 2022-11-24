@@ -1,35 +1,38 @@
 package com.Accio;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 import static java.lang.Class.forName;
 
 public class databaseConnection {
-    static Connection connection = null ;
+    static Connection connection = null;
     private static String className;
 
-    public static Connection getConnection(){
-        if ( connection != null ){
-            return connection ;
+    public static Connection getConnection() {
+        if (connection != null) {
+            return connection;
         }
 
-        String db = "acciosearch" ;
-        String user = "root";
-        String pwd = "";
-        return getConnection(db , user , pwd);
+        String db = "sql6580288";
+        String user = "sql6580288";
+        String pwd = "9DSKezsqWY";
+        return getConnection(db, user, pwd);
     }
 
-    private static Connection getConnection(String db, String user , String pwd) {
+    private static Connection getConnection(String db, String user, String pwd) {
         try {
 
-            Class.forName ( "com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost/"+db+"?user="+user+"&password="+pwd);
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager
+                    .getConnection(
+                            "jdbc:mysql://sql6.freesqldatabase.com/" + db + "?user=" + user + "&password=" + pwd);
 
-        } catch ( Exception exception ) {
-           exception.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
-        return connection ;
+        return connection;
 
     }
 }
